@@ -38,6 +38,79 @@ update_status ModuleSceneIntro::Update()
 	// so you have to express the normal of the plane to create 
 	// a plane centered around 0,0. Make that it draw the axis for reference
 
+	primitive.axis = true;
+	primitive.wire = true;
+	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT) {
+		App->input->GetMouseX();
+		//LOG("%d",App->input->GetMouseX());
+	}
+
+	//LOG("%d", App->input->GetMouseXMotion());
+
+	if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN) {
+		XButtonClickPosition = App->input->GetMouseX();
+		YButtonClickPosition = App->input->GetMouseY();;
+	}
+		
+	if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_REPEAT) {
+	
+		/*LOG("%d", App->input->GetMouseX());
+		LOG("%d", RRRangle);*/
+
+		XRangle = App->input->GetMouseX();
+		YRangle = App->input->GetMouseY();
+		XResult = XButtonClickPosition - XRangle;
+		YResult = YButtonClickPosition - YRangle;
+		LOG("%d", Rangle);
+		//Rangle++;
+		/*primitive.SetRotation(-YResult * 0.4, { 1,0,0 });
+		primitive.SetRotation(-XResult * 0.4, { 0,1,0 });*/
+		if (App->input->GetMouseXMotion() < 0) {
+			Rangle++;
+		}
+		else if(App->input->GetMouseXMotion() > 0) {
+			Rangle--;
+		}
+		else {
+			Rangle = Rangle;
+		}
+
+		primitive.SetRotation(Rangle, { -(float)YResult*4,-(float)XResult*4,0 });
+
+		//if (XResult != 0) {
+		//	primitive.SetRotation(-XResult * 0.4, { 0,1,0 });
+		//}
+		//if (YResult != 0) {
+		//	primitive.SetRotation(-YResult * 0.4, { 1,0,0 });
+		//}
+
+		//if (XResult != 0 && YResult != 0) {
+		//	primitive.SetRotation(-XResult * 0.4, { 1,1,0 });
+		//}
+		
+	}
+	//if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) {
+	//	primitive.SetRotation(Rangle, { 0,1,0 });
+	//	Rangle++;
+	//}
+
+	//if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) {
+	//	primitive.SetRotation(Rangle, { 0,1,0 });
+	//	Rangle--;
+	//}
+
+	//if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_UP) {
+	//	Rangle++;
+	//}
+
+	//LOG("%d", Rangle);
+	//primitive.Scale(2, 2, 2);
+	//primitive.SetRotation(10, {1,1,1});
+	//primitive.SetPos(0,1,0);
+	primitive.Render();
+	
+
+
 	// TODO 6: Draw a sphere of 0.5f radius around the center
 	// Draw somewhere else a cube and a cylinder in wireframe
 

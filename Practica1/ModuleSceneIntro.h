@@ -2,6 +2,7 @@
 #include "Module.h"
 #include "p2DynArray.h"
 #include "Globals.h"
+#include "Primitive.h"
 
 #define BOUNCER_TIME 200
 
@@ -19,4 +20,16 @@ public:
 	bool CleanUp();
 
 public:
+
+
+	int Rangle= 0;
+	int XButtonClickPosition = 0;
+	int YButtonClickPosition = 0;
+
+	int XRangle;
+	int YRangle;
+	int XResult;
+	int YResult;
+	
+	Primitive primitive;
 };

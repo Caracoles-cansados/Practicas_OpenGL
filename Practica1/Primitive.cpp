@@ -20,11 +20,13 @@ PrimitiveTypes Primitive::GetType() const
 // ------------------------------------------------------------
 void Primitive::Render() const
 {
+	
 	glPushMatrix();
 	glMultMatrixf(transform.M);
 
 	if(axis == true)
 	{
+		//LOG("ggggggggggggggggggggggggggggggggggggggggggggggggg");
 		// Draw Axis Grid
 		glLineWidth(2.0f);
 
