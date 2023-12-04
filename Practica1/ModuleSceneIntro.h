@@ -30,6 +30,8 @@ public:
 	float YRangle;
 	float XResult;
 	float YResult;
+
+	int ZResult = 0;
 	
 	Primitive primitive;
 };

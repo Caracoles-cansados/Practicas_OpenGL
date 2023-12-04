@@ -49,7 +49,8 @@ update_status ModuleSceneIntro::Update()
 
 	if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN) {
 		XButtonClickPosition = App->input->GetMouseX();
-		YButtonClickPosition = App->input->GetMouseY();;
+		YButtonClickPosition = App->input->GetMouseY();
+		Rangle = Rangle;
 	}
 		
 	if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_REPEAT) {
@@ -95,6 +96,12 @@ update_status ModuleSceneIntro::Update()
 
 		primitive.SetRotation(0, { 1,1,1 });
 	}
+
+	//if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) {
+	//	ZResult +=1;
+	//	primitive.SetRotation(ZResult, { 0,0,1 });
+	//	LOG("%d", ZResult);
+	//}
 
 	//if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) {
 	//	primitive.SetRotation(Rangle, { 0,1,0 });
