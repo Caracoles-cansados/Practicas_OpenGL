@@ -22,14 +22,14 @@ public:
 public:
 
 
-	int Rangle= 0;
-	int XButtonClickPosition = 0;
-	int YButtonClickPosition = 0;
+	float Rangle= 0;
+	float XButtonClickPosition = 0;
+	float YButtonClickPosition = 0;
 
-	int XRangle;
-	int YRangle;
-	int XResult;
-	int YResult;
+	float XRangle;
+	float YRangle;
+	float XResult;
+	float YResult;
 	
 	Primitive primitive;
 };

@@ -66,29 +66,36 @@ update_status ModuleSceneIntro::Update()
 		/*primitive.SetRotation(-YResult * 0.4, { 1,0,0 });
 		primitive.SetRotation(-XResult * 0.4, { 0,1,0 });*/
 		if (App->input->GetMouseXMotion() < 0) {
-			Rangle++;
+			Rangle += 0.5;
 		}
 		else if(App->input->GetMouseXMotion() > 0) {
-			Rangle--;
+			Rangle -= 0.5;
 		}
 		else {
 			Rangle = Rangle;
 		}
 
-		primitive.SetRotation(Rangle, { -(float)YResult*4,-(float)XResult*4,0 });
+		primitive.SetRotation(Rangle, { -(float)YResult,-(float) XResult,0 });
+
+
+		
 
 		//if (XResult != 0) {
 		//	primitive.SetRotation(-XResult * 0.4, { 0,1,0 });
 		//}
-		//if (YResult != 0) {
+		//else if (YResult != 0) {
 		//	primitive.SetRotation(-YResult * 0.4, { 1,0,0 });
-		//}
-
-		//if (XResult != 0 && YResult != 0) {
-		//	primitive.SetRotation(-XResult * 0.4, { 1,1,0 });
+		//}else if (XResult != 0 && YResult != 0) {
+		//	primitive.SetRotation(Rangle, { -(float)YResult*4,-(float)XResult*4,0 });
 		//}
 		
 	}
+
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN) {
+
+		primitive.SetRotation(0, { 1,1,1 });
+	}
+
 	//if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) {
 	//	primitive.SetRotation(Rangle, { 0,1,0 });
 	//	Rangle++;
